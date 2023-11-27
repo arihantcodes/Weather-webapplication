@@ -1,10 +1,10 @@
 const input = document.querySelector(".input-box");
 const button = document.querySelector("#btn");
-const whetherimg = document.querySelector(".weather-img");
+const modes = document.querySelector("#modes");
 const temp = document.querySelector(".temp");
 const desk = document.querySelector(".desk");
 const humidity = document.querySelector("#humidity");
-const wind = document.querySelector("#wind");
+const wind = document.querySelector("#windspeed");
 
 const checkWhether = async (city) => {
   const api = "db7b9870eacc516d761e8e26e4d404bd";
@@ -18,24 +18,23 @@ const checkWhether = async (city) => {
   humidity.innerHTML = `${whether_data.main.humidity}%`;
   wind.innerHTML = `${whether_data.wind.speed}km/H`;
 
-  switch(whether_data.weather[0].main) {
+  switch (whether_data.weather[0].main) {
     case "Clouds":
-      whetherimg.src = "../assest/clouds.png";
+      modes.src = "/assest/clouds.png";
       break;
     case "Clear":
-      whetherimg.src = "../assest/clear.png";
+      modes.src = "/assest/clear.png";
       break;
     case "Rain":
-      whetherimg.src = "../assest/rain.png";
+      modes.src = "/assest/rain.png";
       break;
     case "Snow":
-      whetherimg.src = "../assest/snow.png";
+      modes.src = "/assest/snow.png";
       break;
     case "Mist":
-      whetherimg.src = "../assest/mist.png";
+      modes.src = "/assest/mist.png";
       break;
   }
-  
 };
 
 button.addEventListener("click", () => {
